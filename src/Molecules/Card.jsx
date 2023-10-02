@@ -1,16 +1,18 @@
-import { useState,useEffect } from "react";
-import Button from "../Atoms/Button";
 import Paragraph from "../Atoms/Paragraph"
 import Text from "../Atoms/Text";
 
-function Card({ data }) {
+function Card({ data, specialColorIndex  }) {
   
   return ( 
-    <div className=" flex flex-wrap justify-center py-4">
-      {data.map( (pokemon) =>(
-          <div key={pokemon.id_Pokemon} className="card w-96 bg-sky-500 shadow-xl my-14 mx-10  ">
+    <div className="flex flex-wrap justify-center py-4 ">
+      {data.map( (pokemon, index) =>(
+          <div key={pokemon.id_Pokemon} className={`mx-10 shadow-xl card w-72 ${
+            index < specialColorIndex ? "bg-purple-500" : "bg-sky-500"
+          } my-14 `}>
         
-        <figure className="bg-sky-300">      
+        <figure className = { ` ${
+            index < specialColorIndex ? "bg-purple-200" : "bg-sky-200"
+          }  ` }>      
 <img
     src = { pokemon.image_Pokemon }
 />
@@ -28,7 +30,7 @@ function Card({ data }) {
 
         <Paragraph children = { ` Tipo : ` } span = { pokemon.type_Pokemon } />
 
-        <div className="card-actions justify-end ">
+        <div className="justify-end card-actions ">
         </div>
       </div>
     </div>

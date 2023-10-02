@@ -1,35 +1,33 @@
-import React from 'react'
-import Links from '../Atoms/Links'
-import Text from '../Atoms/Text'
+import Links from "../Atoms/Links";
+import Text from "../Atoms/Text";
 
 const Nav = () => {
+  const linkObject = [
+    {
+      children: "Home",
+    },
 
-    const linkObject = [
-        {
-            children: "Home"
-        },
+    {
+      children: "Contact",
+    },
 
-        {
-            children: "Contact"
-        },
-
-        {
-            children: "About us"
-        }
-    ]
+    {
+      children: "About us",
+    },
+  ];
 
   return (
-    <nav className=' bg-sky-200 py-4 w-full fixed top-0 z-10 '>
-        <div className='flex justify-between mx-auto' >
-        <Text
-            children = { "Pokedex" } 
+    <nav className="fixed top-0 z-10 w-full py-4 lg:px-40 bg-sky-200 sm:px-4 ">
+      <div className="flex justify-between mx-auto">
+        <Text children={"Pokedex"} clase={"px-4"} />
+
+        <Links
+          linkObject={linkObject}
+          clase={" m-2 w-full h-full hover:bg-indigo-400 transition-colors p-4 "}
         />
-
-        <Links linkObject = { linkObject } clase = { ' m-2 w-full h-full hover:bg-indigo-400 transition-colors p-4' } />
-
-        </div>
+      </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Nav
+export default Nav;
